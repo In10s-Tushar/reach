@@ -4,6 +4,7 @@ import { persistReducer, persistStore } from "redux-persist";
 import storage from 'redux-persist/lib/storage';
 
 import mainSlice from "./slices/mainSlice";
+import dashboardSlice from "./slices/dashboardSlice";
 
 const persistConfig = {
   key: 'root',
@@ -18,6 +19,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   main: mainSlice,
+  dashboard: dashboardSlice,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
