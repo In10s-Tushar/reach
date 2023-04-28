@@ -1,6 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit"
-import { getEmailStats, getSMSStats } from "../services/dashboard"
-import { IEmailStats, IFileCount, ISmsStats } from "../../lib/interfaces/dashboard"
+import { createSlice } from '@reduxjs/toolkit'
+import { getEmailStats, getSMSStats } from '../services/dashboard'
+import { IEmailStats, IFileCount, ISmsStats } from '../../lib/interfaces/dashboard'
 
 export type PageState = {
   masterFileCount?: IFileCount
@@ -13,11 +13,11 @@ const initialState: PageState = {
   masterFileCount: undefined,
   transactionalFileCount: undefined,
   smsStats: undefined,
-  emailStats: undefined
+  emailStats: undefined,
 }
 
 export const dashboardSlice = createSlice({
-  name: "dashboard",
+  name: 'dashboard',
   initialState,
   reducers: {
     resetDashboardSlice: () => initialState,
@@ -39,10 +39,7 @@ export const dashboardSlice = createSlice({
   },
 })
 
-export const {
-  resetDashboardSlice,
-  setMasterFileCount,
-  setTransactionalFileCount
-} = dashboardSlice.actions
+export const { resetDashboardSlice, setMasterFileCount, setTransactionalFileCount } =
+  dashboardSlice.actions
 
 export default dashboardSlice.reducer

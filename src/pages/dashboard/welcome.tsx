@@ -1,37 +1,45 @@
-import React, { useEffect } from 'react';
-import TopGradientBox from '../../components/functional/dashboard/topGradientBox';
-import BarGraph from '../../components/graph/barGraph';
-import LineGraph from '../../components/graph/lineGraph';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { getEmailStats, getFileCount, getSMSStats } from '../../store/services/dashboard';
+import React, { useEffect } from 'react'
+import TopGradientBox from '../../components/functional/dashboard/topGradientBox'
+import BarGraph from '../../components/graph/barGraph'
+import LineGraph from '../../components/graph/lineGraph'
+import { useAppDispatch, useAppSelector } from '../../store/hooks'
+import { getEmailStats, getFileCount, getSMSStats } from '../../store/services/dashboard'
 
 const Welcome = () => {
   const dispatch = useAppDispatch()
-  const smsStats = useAppSelector((state)=> state.dashboard?.smsStats)
-  const emailStats = useAppSelector((state)=> state.dashboard?.emailStats)
-  const masterFileCount = useAppSelector((state)=> state.dashboard?.masterFileCount)
-  const transactionalFileCount = useAppSelector((state)=> state.dashboard?.transactionalFileCount)
+  const smsStats = useAppSelector((state) => state.dashboard?.smsStats)
+  const emailStats = useAppSelector((state) => state.dashboard?.emailStats)
+  const masterFileCount = useAppSelector((state) => state.dashboard?.masterFileCount)
+  const transactionalFileCount = useAppSelector((state) => state.dashboard?.transactionalFileCount)
 
   useEffect(() => {
-    dispatch(getFileCount({
-      Data_Type: 'M',
-      startDate: 1682015400000,
-      endDate: 1682101799999,
-    }))
-    dispatch(getFileCount({
-      Data_Type: 'T',
-      startDate: 1682015400000,
-      endDate: 1682101799999,
-    }))
-    dispatch(getSMSStats({
-      startDateTime: '2023-04-20T07:39:24.931Z',
-      endDateTime: '2023-04-27T07:39:24.931Z',
-      getCount: true
-    }))
-    dispatch(getEmailStats({
-      startDateTime: '2023-04-20T07:39:24.931Z',
-      endDateTime: '2023-04-27T07:39:24.931Z'
-    }))
+    dispatch(
+      getFileCount({
+        dataType: 'M',
+        startDate: 1682015400000,
+        endDate: 1682101799999,
+      }),
+    )
+    dispatch(
+      getFileCount({
+        dataType: 'T',
+        startDate: 1682015400000,
+        endDate: 1682101799999,
+      }),
+    )
+    dispatch(
+      getSMSStats({
+        startDateTime: '2023-04-20T07:39:24.931Z',
+        endDateTime: '2023-04-27T07:39:24.931Z',
+        getCount: true,
+      }),
+    )
+    dispatch(
+      getEmailStats({
+        startDateTime: '2023-04-20T07:39:24.931Z',
+        endDateTime: '2023-04-27T07:39:24.931Z',
+      }),
+    )
   }, [])
   return (
     <React.Fragment>
@@ -50,7 +58,8 @@ const Welcome = () => {
                     subHeadingOne="Communication Sent"
                     subHeadingTwo="Audience Count"
                     campaignCount="2345"
-                    audienceCount="3243" />
+                    audienceCount="3243"
+                  />
                 </div>
                 <div className="d-flex col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                   <TopGradientBox
@@ -59,7 +68,8 @@ const Welcome = () => {
                     subHeadingOne="Communication Sent"
                     subHeadingTwo="Audience Count"
                     campaignCount="1234"
-                    audienceCount="2342" />
+                    audienceCount="2342"
+                  />
                 </div>
                 <div className="d-flex col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                   <TopGradientBox
@@ -68,7 +78,8 @@ const Welcome = () => {
                     subHeadingOne="Unique Clicks"
                     subHeadingTwo="CTR"
                     campaignCount="234"
-                    audienceCount="12" />
+                    audienceCount="12"
+                  />
                 </div>
                 <div className="d-flex col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                   <TopGradientBox
@@ -77,7 +88,8 @@ const Welcome = () => {
                     subHeadingOne="Unique Clicks"
                     subHeadingTwo="CTR"
                     campaignCount="134"
-                    audienceCount="6" />
+                    audienceCount="6"
+                  />
                 </div>
               </div>
               <div className="row mt-4">
@@ -152,4 +164,4 @@ const Welcome = () => {
   )
 }
 
-export default Welcome;
+export default Welcome

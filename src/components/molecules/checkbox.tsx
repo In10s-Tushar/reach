@@ -1,28 +1,23 @@
-import React, { useId } from "react";
-import styled from "styled-components";
+import React, { useId } from 'react'
+import styled from 'styled-components'
 interface ICheckbox {
   name: string
   checked: boolean
   onValueChange: (name: string, value: boolean) => void
   label: string
 }
-const Label = styled.label`
+const Label = styled.label `
   margin-left: 10px;
 `
-const Input = styled.input`
+const Input = styled.input `
   margin-left: 5px;
 `
 const Checkbox = (props: ICheckbox) => {
-  const {
-    name,
-    checked,
-    label,
-    onValueChange,
-  } = props;
+  const { name, checked, label, onValueChange } = props
 
   const id = useId()
 
-  const onChangeHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     onValueChange(name, e.target.checked)
   }
 
