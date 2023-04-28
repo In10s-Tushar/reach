@@ -1,19 +1,19 @@
-import { Login, CreateSMSCommunication } from "./pages";
-import Welcome from "./pages/dashboard/welcome";
+import { Login, CreateSMSCommunication } from './pages'
+import Welcome from './pages/dashboard/welcome'
 
 const AllRoutes = [
   {
-    path: "/",
+    path: '/',
     element: <Welcome />,
   },
   {
-    path: "/login",
+    path: '/login',
     element: <Login />,
   },
   {
-    path: "/create-sms-communication",
+    path: '/create-sms-communication',
     element: <CreateSMSCommunication />,
   },
-];
+]
 
-export default AllRoutes;
+export default AllRoutes

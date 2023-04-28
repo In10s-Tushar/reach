@@ -1,0 +1,86 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "jest": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
+    ],
+    "overrides": [
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "react-hooks",
+        "@typescript-eslint",
+        "prettier"
+    ],
+    "ignorePatterns": [
+        "**/node_modules/*.*"
+    ],
+    "rules": {
+        "react/react-in-jsx-scope": "off",
+        "block-scoped-var": "error",
+        "camelcase": "error",
+        "default-case-last": "error",
+        "indent": ["error", 2],
+        "jsx-quotes": ["error", "prefer-double"],
+        "lines-between-class-members": ["error", "always"],
+        "max-classes-per-file": ["error", 1],
+        "max-nested-callbacks": ["error", 5],
+        "max-len": ["error", { "code": 200 }],
+        "max-params": ["error", 6],
+        "max-statements-per-line": "error",
+        "new-parens": "error",
+        "no-alert": "error",
+        "no-await-in-loop": "error",
+        "no-bitwise": "error",
+        "no-caller": "error",
+        "no-constructor-return": "error",
+        "no-console": "warn",
+        "no-delete-var": "error",
+        "no-duplicate-imports": "error",
+        "no-empty-function": "error",
+        "no-eval": "error",
+        "no-floating-decimal": "error",
+        "no-iterator": "error",
+        "no-lone-blocks": "error",
+        "no-lonely-if": "error",
+        "no-loop-func": "error",
+        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+        "no-return-await": "error",
+        "no-self-compare": "error",
+        "no-script-url": "error",
+        "no-sequences": "error",
+        "no-shadow": "error",
+        "no-template-curly-in-string": "error",
+        "no-unmodified-loop-condition": "error",
+        "no-var": "error",
+        "no-with": "error",
+        "prefer-arrow-callback": "error",
+        "prefer-const": "error",
+        "prefer-object-spread": "error",
+        "prefer-promise-reject-errors": "error",
+        "prefer-spread": "error",
+        "prefer-template": "error",
+        "semi-spacing": "error",
+        "spaced-comment": "error",
+        "space-infix-ops": "error",
+        "template-tag-spacing": ["error", "always"],
+        "quotes": ["error", "single"],
+        "wrap-iife": [2, "inside", { "functionPrototypeMethods": true}]
+    },
+    "settings": {
+        "import/resolver": {
+          "typescript": {}
+        }
+      }
+}

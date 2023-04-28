@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 interface ITextField {
   name: string
   fieldType: 'text' | 'password' | 'email'
@@ -11,31 +11,24 @@ interface ITextField {
 }
 
 const TextField = (props: ITextField) => {
-  const { fieldType,
-    value,
-    name,
-    setValue,
-    ariaLabel,
-    placeholder,
-    isError,
-    errorMessage } = props;
+  const { fieldType, value, name, setValue, ariaLabel, placeholder, isError, errorMessage } = props
 
   return (
     <React.Fragment>
       <div className="form-group mb-3">
-        <input type={fieldType}
+        <input
+          type={fieldType}
           className="form-control"
           value={value}
           name={name}
           onChange={(e) => setValue(name, e.target.value)}
           aria-label={ariaLabel}
-          placeholder={placeholder} />
-        {(isError) && (
-          <small className="text-danger">{errorMessage}</small>
-        )}
+          placeholder={placeholder}
+        />
+        {isError && <small className="text-danger">{errorMessage}</small>}
       </div>
     </React.Fragment>
   )
 }
 
-export default TextField;
+export default TextField

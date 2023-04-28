@@ -1,40 +1,43 @@
-import React, { useState } from "react";
-import TextField from "../../components/molecules/textField";
-import { emailRegex } from "../../lib/constant/constant";
-import { useAppDispatch } from "../../store/hooks";
-import { loginUser } from "../../store/services/main";
-import { ILoginPayload } from "../../lib/interfaces/user";
+import React, { useState } from 'react'
+import TextField from '../../components/molecules/textField'
+import { emailRegex } from '../../lib/constant/constant'
+import { useAppDispatch } from '../../store/hooks'
+import { loginUser } from '../../store/services/main'
+import { ILoginPayload } from '../../lib/interfaces/user'
 
 const initialValue: ILoginPayload = {
   emailAddress: '',
-  password: ''
+  password: '',
 }
 const Login = () => {
-  const dispatch = useAppDispatch();
-  const [formValue, setFormValue] = useState(initialValue);
+  const dispatch = useAppDispatch()
+  const [formValue, setFormValue] = useState(initialValue)
   const [notification, setNotification] = useState({
     message: '',
-    field: ''
-  });
+    field: '',
+  })
 
   const handleSignin = (e: any) => {
-    e.preventDefault();
+    e.preventDefault()
     if (formValue.emailAddress === '' || !emailRegex.test(formValue.emailAddress)) {
-      setNotification({ message: 'Please Provide Valid Email', field: 'email' });
+      setNotification({ message: 'Please Provide Valid Email', field: 'email' })
     } else if (formValue.password === '') {
-      setNotification({ message: 'Please Provide Valid Password', field: 'password' });
+      setNotification({ message: 'Please Provide Valid Password', field: 'password' })
     } else if (formValue.emailAddress !== '' || emailRegex.test(formValue.emailAddress)) {
-      setNotification({ message: '', field: '' });
+      setNotification({ message: '', field: '' })
     }
-    dispatch(loginUser({
-      data: { ...formValue }, cb: (status: boolean) => {
-        if (status) {
-          window.location.replace('/')
-        } else {
-          alert("Invalid credential")
-        }
-      }
-    }))
+    dispatch(
+      loginUser({
+        data: { ...formValue },
+        cb: (status: boolean) => {
+          if (status) {
+            window.location.replace('/')
+          } else {
+            // alert('Invalid credential')
+          }
+        },
+      }),
+    )
   }
 
   const onChangeValue = (name: string, val: string | number) => {
@@ -50,7 +53,6 @@ const Login = () => {
               {/* <Link to=""> */}
               <img src="/images/reach-big-logo-white.png" alt="white-logo" className="img-fluid" />
               {/* </Link> */}
-
             </div>
             <div className="col-lg-5 col-md-7 col-12">
               <div className="card bg-white border-0 mb-0">
@@ -68,7 +70,8 @@ const Login = () => {
                       errorMessage={notification.message}
                       setValue={onChangeValue}
                       ariaLabel="email"
-                      placeholder="Enter email address" />
+                      placeholder="Enter email address"
+                    />
 
                     {/* Password */}
                     <TextField
@@ -79,13 +82,20 @@ const Login = () => {
                       errorMessage={notification.message}
                       setValue={onChangeValue}
                       ariaLabel="password"
-                      placeholder="Enter password" />
+                      placeholder="Enter password"
+                    />
 
                     <div className="row">
                       <div className="col-6">
                         <div className="custom-control custom-control-alternative custom-checkbox mb-3">
                           <label className="form-check-label">
-                            <input className="form-check-input mr-1" type="checkbox" id="remember" name="rememberMe" /> Remember me
+                            <input
+                              className="form-check-input mr-1"
+                              type="checkbox"
+                              id="remember"
+                              name="rememberMe"
+                            />{' '}
+                            Remember me
                           </label>
                         </div>
                       </div>
@@ -96,7 +106,9 @@ const Login = () => {
                       </div>
                     </div>
                     <div className="form-group text-center">
-                      <button className="btn btn-primary mt-3 w-100 py-3" type="submit">Sign in</button>
+                      <button className="btn btn-primary mt-3 w-100 py-3" type="submit">
+                        Sign in
+                      </button>
                       {/* <BigButton 
                             buttonName="Sign In"
                             buttonClick={props.loginUserHandler} /> */}
@@ -118,4 +130,4 @@ const Login = () => {
     </React.Fragment>
   )
 }
-export default Login;
+export default Login

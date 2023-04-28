@@ -1,4 +1,3 @@
-
 export interface IFileCount {
   processedFiles: number
   skippedFiles: number
@@ -12,10 +11,10 @@ export interface ISmsStats {
 }
 
 export interface IEmailStats {
-  emailCampIds: Array<string>,
-  campCicks: number,
-  campDistinctClicks: number,
-  unsCount: number,
-  campStats: Array<any>,
+  emailCampIds: Array<string>
+  campCicks: number
+  campDistinctClicks: number
+  unsCount: number
+  campStats: Array<any>
   status: boolean
 }
