@@ -1,5 +1,5 @@
 import React from 'react'
-import CreateCampaignStepZero from '../../components/functional/communication.tsx/createCampaignStepZero'
+import CreateCampaignStepZero from '../../components/functional/communication/createCampaignStepZero'
 
 const CreateSMSCommunication = () => {
   return (

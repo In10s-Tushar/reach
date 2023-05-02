@@ -73,8 +73,8 @@ const Welcome = () => {
                     campaignName="SMS Text"
                     subHeadingOne="Communication Sent"
                     subHeadingTwo="Audience Count"
-                    campaignCount="2345"
-                    audienceCount="3243"
+                    campaignCount={smsStats?.totalSentCount}
+                    audienceCount={smsStats?.distinctCount}
                   />
                 </div>
                 <div className="d-flex col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
@@ -83,8 +83,8 @@ const Welcome = () => {
                     campaignName="Email"
                     subHeadingOne="Communication Sent"
                     subHeadingTwo="Audience Count"
-                    campaignCount="1234"
-                    audienceCount="2342"
+                    campaignCount="2313"
+                    audienceCount="3213"
                   />
                 </div>
                 <div className="d-flex col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
@@ -120,7 +120,7 @@ const Welcome = () => {
                       </div>
                     </div>
                     <div className="card-body px-1">
-                      <LineGraph />
+                      <LineGraph data={masterFileCount} />
                     </div>
                   </div>
                 </div>
@@ -135,7 +135,7 @@ const Welcome = () => {
                       </div>
                     </div>
                     <div className="card-body px-1">
-                      <LineGraph />
+                      <LineGraph data={transactionalFileCount} />
                     </div>
                   </div>
                 </div>
