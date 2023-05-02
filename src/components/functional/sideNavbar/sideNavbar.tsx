@@ -15,7 +15,7 @@ const SideNavbar = () => {
           <img src="/images/reach-big-logo-white.png" className="img-fluid" />
           <i className="fa fa-bars cursor-pointer float-right"></i>
         </div>
-        
+
         <div className="sidenavbar-content">
           <Navbar collapseOnSelect expand="lg">
             <Nav className="me-auto">
