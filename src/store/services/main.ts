@@ -4,6 +4,7 @@ import { crypt } from '../../lib/utils'
 import { addLoader, removeLoader, resetMainSlice, updateLoggedIn } from '../slices/mainSlice'
 import { ILoginPayload } from '../../lib/interfaces/user'
 import { resetDashboardSlice } from '../slices/dashboardSlice'
+import { resetDataImportSlice } from '../slices/dataImportSlice'
 
 export const loginUser = createAsyncThunk(
   'main/loginUser',
@@ -38,6 +39,7 @@ export const logoutUser = createAsyncThunk('main/logoutUser', async (_, { dispat
   // TODO: reset all the slice here
   dispatch(resetMainSlice())
   dispatch(resetDashboardSlice())
+  dispatch(resetDataImportSlice())
   dispatch(removeLoader())
 })
 

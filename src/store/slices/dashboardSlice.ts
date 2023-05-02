@@ -1,12 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getEmailStats, getSMSStats } from '../services/dashboard'
-import { IEmailStats, IFileCount, ISmsStats } from '../../lib/interfaces/dashboard'
+import { getCampaignCount, getEmailStats, getSMSStats } from '../services/dashboard'
+import {
+  ICampaignCountResponse,
+  IEmailStats,
+  IFileCount,
+  ISmsStats,
+} from '../../lib/interfaces/dashboard'
 
 export type PageState = {
   masterFileCount?: IFileCount
   transactionalFileCount?: IFileCount
   smsStats?: ISmsStats
   emailStats?: IEmailStats
+  campaignCount?: ICampaignCountResponse
 }
 
 const initialState: PageState = {
@@ -14,6 +20,7 @@ const initialState: PageState = {
   transactionalFileCount: undefined,
   smsStats: undefined,
   emailStats: undefined,
+  campaignCount: undefined,
 }
 
 export const dashboardSlice = createSlice({
@@ -35,6 +42,9 @@ export const dashboardSlice = createSlice({
       })
       .addCase(getEmailStats.fulfilled, (state, action) => {
         state.emailStats = action.payload
+      })
+      .addCase(getCampaignCount.fulfilled, (state, action) => {
+        state.campaignCount = action.payload
       })
   },
 })

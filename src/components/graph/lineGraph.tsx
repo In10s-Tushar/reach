@@ -6,8 +6,7 @@ interface ILineGraphData {
 }
 
 const LineGraph = (props: ILineGraphData) => {
-
-  const {data} = props;
+  const { data } = props
 
   return (
     <React.Fragment>
