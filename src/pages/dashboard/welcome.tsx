@@ -3,7 +3,12 @@ import TopGradientBox from '../../components/functional/dashboard/topGradientBox
 import BarGraph from '../../components/graph/barGraph'
 import LineGraph from '../../components/graph/lineGraph'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
-import { getEmailStats, getFileCount, getSMSStats } from '../../store/services/dashboard'
+import {
+  getCampaignCount,
+  getEmailStats,
+  getFileCount,
+  getSMSStats,
+} from '../../store/services/dashboard'
 
 const Welcome = () => {
   const dispatch = useAppDispatch()
@@ -11,6 +16,7 @@ const Welcome = () => {
   const emailStats = useAppSelector((state) => state.dashboard?.emailStats)
   const masterFileCount = useAppSelector((state) => state.dashboard?.masterFileCount)
   const transactionalFileCount = useAppSelector((state) => state.dashboard?.transactionalFileCount)
+  const campaignCount = useAppSelector((state) => state.dashboard?.campaignCount)
 
   useEffect(() => {
     dispatch(
@@ -40,7 +46,17 @@ const Welcome = () => {
         endDateTime: '2023-04-27T07:39:24.931Z',
       }),
     )
+    dispatch(
+      getCampaignCount({
+        startDate: '2023-04-25T12:31:49.749Z',
+        endDate: '2023-05-02T12:31:49.749Z',
+        getAllDayStats: true,
+        getEmailStats: true,
+        getSmsStats: true,
+      }),
+    )
   }, [])
+
   return (
     <React.Fragment>
       <div className="container mb-4 p-0">

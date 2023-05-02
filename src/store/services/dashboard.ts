@@ -72,7 +72,41 @@ export const getEmailStats = createAsyncThunk(
         return response.data
       }
     } catch (error) {
-      console.log(error)
+      // console.log(error)
+    }
+    dispatch(removeLoader())
+    return null
+  },
+)
+
+export const getCampaignCount = createAsyncThunk(
+  'dashboard/getCampaignCount',
+  async (
+    data: {
+      startDate: string
+      endDate: string
+      getAllDayStats: boolean
+      getEmailStats: boolean
+      getSmsStats: boolean
+    },
+    { dispatch },
+  ) => {
+    try {
+      dispatch(addLoader())
+      let token = await http.get('/csrfToken')
+      token = token.data
+      const response = await http.post('/dashboard/getCampaignCount', {
+        ...data,
+        ...token,
+      })
+      if (response.status === 401) {
+        dispatch(logoutUser())
+      } else if (response.status === 200) {
+        dispatch(removeLoader())
+        return response.data
+      }
+    } catch (error) {
+      // console.log(error)
     }
     dispatch(removeLoader())
     return null
